@@ -3,6 +3,8 @@ This template is used for the Hainan Normal University undergraduate thesis, esp
 
 海南师范大学本科毕业论文LaTeX模板
 
+INSTRUCTION.tex是说明书，Template是模板
+
 如果本文有bug问题或其他问题，可联系邮箱forhheart5532@gmail.com
 
 环境为Texlive2022 windows
