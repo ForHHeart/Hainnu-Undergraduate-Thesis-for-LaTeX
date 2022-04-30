@@ -14,3 +14,5 @@ This template is used for the Hainan Normal University undergraduate thesis, esp
 ![image](3.目录.png)
 ![image](4.摘要.png)
 ![image](5.正文.png)
+![image](6.三线表.png)
+![image](7.表格中插入图.png)
