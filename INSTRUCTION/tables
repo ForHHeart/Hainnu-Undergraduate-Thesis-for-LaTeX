@@ -1,0 +1,148 @@
+%------------------------------------------------------------------------------------------%
+%常见表格宏包
+\usepackage{multirow,makecell,caption,float,rotating}%表格合并、垂直居中、标题、紧跟文字、旋转
+\usepackage{booktabs}%三线表
+%----------------------------------------------------------------%
+%----------------------------------------------------------------%
+%在线生成LaTeX表格网站
+%适用于绝大多数常规表格，可从word、excel直接ctrl+v到网站生成所需表格，
+%点击generate按钮，并使用copy to clipboard按钮复制到剪贴板，粘贴到tex文件即可使用
+https://www.tablesgenerator.com/latex_tables
+%----------------------------------------------------------------%
+%----------------------------------------------------------------%
+%1.三线表
+%三线表要素
+\toprule%表格顶线（加粗）
+\midrule%表格中线
+\bottomrule%表格底线（加粗）
+%使用\toprule、\miderule、\bottomrule时会出现竖线的断层，如果要使用竖线通常使用\hline或\cline{}
+%示例1
+\begin{table}[H]
+	\centering
+	\footnotesize
+	\begin{tabular}{c|c|cc|cc|cc|cc}
+		\toprule
+		\multirow{2}{*}{\textbf{Category}} &
+		\multirow{2}{*}{\textbf{Models}} &
+		\multicolumn{2}{c|}{\textbf{Enron}} &
+		\multicolumn{2}{c|}{\textbf{UCI}} &
+		\multicolumn{2}{c|}{\textbf{Youtube}} &
+		\multicolumn{2}{c}{\textbf{TKY}} \\
+		&            & \textbf{AUC}    & \textbf{MAP}    & \textbf{AUC}    & \textbf{MAP}    & \textbf{AUC}    & \textbf{MAP}    & \textbf{AUC}    & \textbf{MAP}    \\ \midrule
+		\multirowcell{3}{\textbf{Heuristics methods}} &
+		CN &	0.6858 &	0.6777 &	0.5688 &	0.6947 &	0.5696 &	0.5621 &	0.5037 &	0.504 \\
+		& Newton       & 0.6847 & 0.6908 & 0.569  & 0.5662 & 0.5    & 0.5    & 0.5    & 0.5    \\
+		\multirowcell{4.5}{\textbf{Static Link   Prediction}} & node2vec     & 0.5    & 0.5    & 0.5    & 0.5    & 0.5    & 0.5    & 0.5    & 0.5    \\ \midrule
+		& GCN          & 0.5288 & 0.5346 & 0.5306 & 0.552  & 0.5031 & 0.5083 & 0.4532 & 0.4884 \\
+		& GAT          & 0.5247 & 0.5327 & 0.4569 & 0.4835 & 0.5628 & 0.5199 & 0.4633 & 0.4928 \\ \midrule
+		\multirow{3}{*}{\textbf{Dynamic Link   Prediction}} &
+		DySAT &0.6304 &	0.617 &	0.6378 &	0.6109 &	0.6539 &	0.6369 &	0.6327 &	0.6169 \\
+		& DynamicTriad & 0.5559 & 0.5479 & 0.6406 & 0.6274 & 0.6854 & 0.6757 & 0.569  & 0.5746 \\
+		& GC-LSTM      & 0.5131 & 0.537  & 0.5653 & 0.5617 & 0.7067 & 0.7068 & 0.6163 & 0.6051 \\ \midrule
+		\textbf{Ours}                                      & ModelName    & 0.7059 & 0.7125 & 0.7199 & 0.6947 & 0.7572 & 0.7242 & 0.7446 & 0.7996\\ \bottomrule
+	\end{tabular}
+\end{table}
+%示例2
+\begin{table}[H]
+	\centering
+	\footnotesize
+	\begin{tabular}{cccccccccc}
+		\toprule
+		\multirow{2}{*}{\textbf{Category}} &
+		\multirow{2}{*}{\textbf{Models}} &
+		\multicolumn{2}{c|}{\textbf{Enron}} &
+		\multicolumn{2}{c|}{\textbf{UCI}} &
+		\multicolumn{2}{c|}{\textbf{Youtube}} &
+		\multicolumn{2}{c}{\textbf{TKY}} \\
+		&            & \textbf{AUC}    & \textbf{MAP}    & \textbf{AUC}    & \textbf{MAP}    & \textbf{AUC}    & \textbf{MAP}    & \textbf{AUC}    & \textbf{MAP}    \\ \midrule
+		\multirowcell{3}{\textbf{Heuristics methods}} &
+		CN &	0.6858 &	0.6777 &	0.5688 &	0.6947 &	0.5696 &	0.5621 &	0.5037 &	0.504 \\
+		& Newton       & 0.6847 & 0.6908 & 0.569  & 0.5662 & 0.5    & 0.5    & 0.5    & 0.5    \\
+		\multirowcell{4.5}{\textbf{Static Link   Prediction}} & node2vec     & 0.5    & 0.5    & 0.5    & 0.5    & 0.5    & 0.5    & 0.5    & 0.5    \\ \midrule
+		& GCN          & 0.5288 & 0.5346 & 0.5306 & 0.552  & 0.5031 & 0.5083 & 0.4532 & 0.4884 \\
+		& GAT          & 0.5247 & 0.5327 & 0.4569 & 0.4835 & 0.5628 & 0.5199 & 0.4633 & 0.4928 \\ \midrule
+		\multirow{3}{*}{\textbf{Dynamic Link   Prediction}} &
+		DySAT &0.6304 &	0.617 &	0.6378 &	0.6109 &	0.6539 &	0.6369 &	0.6327 &	0.6169 \\
+		& DynamicTriad & 0.5559 & 0.5479 & 0.6406 & 0.6274 & 0.6854 & 0.6757 & 0.569  & 0.5746 \\
+		& GC-LSTM      & 0.5131 & 0.537  & 0.5653 & 0.5617 & 0.7067 & 0.7068 & 0.6163 & 0.6051 \\ \midrule
+		\textbf{Ours}                                      & ModelName    & 0.7059 & 0.7125 & 0.7199 & 0.6947 & 0.7572 & 0.7242 & 0.7446 & 0.7996\\ \bottomrule
+	\end{tabular}
+\end{table}
+%----------------------------------------------------------------%
+%----------------------------------------------------------------%
+%二、对表头高度进行调整以及控制表格的宽度
+%直接使用\caption{}可能会导致表头与表格之间的距离太大,调用\setlength对表头高度进行调整
+\setlength{\abovecaptionskip}{0cm}
+\setlength{\belowcaptionskip}{-0.2cm}
+%表格因为文字大小的关系，会导致论文中每个表格宽度不一，将\begin{tabular}换为\begin{tabular*}，并调整参数即可实现宽度统一
+\begin{tabular*}{0.9\textwidth}{@{\extracolsep{\fill}}ll}
+%示例
+\begin{table}[H]
+	\centering
+	\setlength{\abovecaptionskip}{0cm}
+	\setlength{\belowcaptionskip}{-0.2cm}
+	\caption{数形结合在概率与统计主线中的应用}
+	\zihao{5}
+	\begin{tabular*}{0.98\textwidth}{@{\extracolsep{\fill}}ll}
+		\hline
+		\multicolumn{1}{c}{章节名} & \multicolumn{1}{c}{数形结合的应用}                                                                          \\
+		\hline
+		概率                      & \begin{tabular}[c]{@{}l@{}}1.用Venn 图表示事件的关系与交、并运算\\ 2.用树状图表示基本事件及其概率\\ 3.用几何关系计算基本事件的概率\end{tabular} \\
+		统计                      & \begin{tabular}[c]{@{}l@{}}1.频率分布表、频率分布直方图、频率分布折线图、茎叶图\\ 2.由散点图分析变量的相关关系\end{tabular} \\
+		\hline              
+	\end{tabular*}
+\end{table}
+%----------------------------------------------------------------%
+%----------------------------------------------------------------%
+%三、在表格中插图
+%示例
+\begin{table}[H]
+	\centering
+	\setlength{\abovecaptionskip}{0cm}
+	\setlength{\belowcaptionskip}{-0.2cm}
+	\caption{直线与圆的位置关系}
+	\zihao{5}
+	\begin{tabular*}{0.98\textwidth}{@{\extracolsep{\fill}}ccc}
+		\hline
+		相离               & 相切         & 相交            \\ \hline
+		方程组无解            & 方程组有且只有一个解 & 方程组有两个解       \\
+		d>r & d=r        & d<r \\~
+		&     ~       & ~              \\
+		\begin{minipage}{0.1\textwidth}				
+		\includegraphics[scale=0.7]{3.png}
+	\end{minipage}&\begin{minipage}{0.1\textwidth}				
+\includegraphics[scale=0.7]{4.png}
+\end{minipage}            &\begin{minipage}{0.1\textwidth}				
+\includegraphics[scale=0.7]{5.png}
+\end{minipage}               \\~
+		&    ~        &   ~            \\ \hline
+	\end{tabular*}
+\end{table}
+%----------------------------------------------------------------%
+%----------------------------------------------------------------%
+%四、制作教案长表格
+%示例
+\begin{table}[H]
+	\centering
+	\footnotesize
+	\begin{tabular}{|lll|}
+		\hline
+		\multicolumn{1}{|l|}{课题名称} & \multicolumn{2}{l|}{《二元一次方程组》} \\ \hline
+		\multicolumn{3}{|l|}{一、教学目标}                                \\ \hline
+		\multicolumn{3}{|l|}{（1）能根据题目所给的信息列出相应的方程或方程组；}             \\ 
+		\multicolumn{3}{|l|}{（2）能列举或者判断一组数值是不是二元一次方程组的解；}           \\ 
+		\multicolumn{3}{|l|}{\begin{tabular}[c]{@{}l@{}}（3）通过对我国古代数学著作中所提出的数学问题进行分析，感受我\\ 国古代数学家的智慧，提升家国情怀，提高对数学的学习兴趣。\end{tabular}}                            \\ \hline
+		\multicolumn{3}{|l|}{二、教学重难点}                               \\ \hline
+		\multicolumn{3}{|l|}{（1）能够列出二元一次方程或判断一组数是不是方程的解；}           \\
+		\multicolumn{3}{|l|}{（2）理解二元一次方程组及其解的概念。}                   \\ \hline
+		\multicolumn{3}{|l|}{三、教学过程}                                \\ \hline
+		\multicolumn{1}{|l|}{（1）创设情境，导入新课} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}~\\\begin{minipage}{0.1\textwidth}				
+					\includegraphics[scale=0.15]{10.png}
+				\end{minipage}\\ 
+			~~~~~~~~师：请同学们看到这张图片，假设老牛背\\上有x个包裹，小马背上有，个包裹，根据左\\边图片中的信息我们可以得到什么方程？根据\\右边图片中的信息我们又能得到一个什么样的\\方程？\\
+			~~~~~~~~生：$\left\{\begin{matrix}
+				x-y=2\\x+1=2(y-1)				
+			\end{matrix}\right.$
+		\end{tabular}} & \begin{tabular}[c]{@{}l@{}}~~~~~~~~设计意\\图:在课堂引\\入中以顺应\\式的方式将\\我国《孙子算\\法》一文中的\\数学问题插\\入到课堂，让\\学生感受我\\国古代数学\\家获得的成\\果，滲透家国\\情怀教育。\end{tabular} \\ \hline				
+	\end{tabular}
+\end{table}
