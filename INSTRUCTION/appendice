@@ -1,0 +1,34 @@
+%------------------------------------------------------------------------%
+%------------------------------------------------------------------------%
+%笔者已经设置好了matlab代码附录参数如下，在导言区加入：
+\usepackage{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{
+	basicstyle=\scriptsize,                 % 设置整体的字体大小
+	showstringspaces=true           		% 不显示字符串中的空格
+	%背景框
+	framexleftmargin=1.5mm,
+	frame=shadowbox,
+	numbers=left,                               % 在左侧显示行号
+	% numberstyle=\scriptsize\color{gray},    % 设置行号格式
+	numberstyle=\color{darkgray},               % 设置行号格式
+	%背景色
+	%backgroundcolor=\color[RGB]{245,245,244},
+	keywordstyle=\color{blue},                  % 设置关键字颜色
+	commentstyle=\it\color[RGB]{0,100,0},       % 设置代码注释的格式
+	stringstyle=\sl\color{red},                 % 设置字符串格式
+}
+%------------------------------------------------------------------------%
+%------------------------------------------------------------------------%
+%附录
+\addcontentsline{toc}{section}{\textbf{附录}}
+\begin{flushleft}
+	{\zihao{3}\textbf{附录}}
+\end{flushleft}
+
+\begin{appendices}
+	\begin{lstlisting}[language=matlab]			
+      your matlab codes		
+	\end{lstlisting}
+\end{appendices}
