@@ -1,0 +1,236 @@
+\documentclass[11pt,a4paper]{article}
+%------------------------------------------------------------------------------------------%
+%常规
+\usepackage[top=1in,bottom=1in,left=1.1in,right=1in]{geometry}%设置页边距
+\usepackage{setspace}%设置行间距
+%\onehalfspacing
+\usepackage{indentfirst}%设置首行缩进2格
+\setlength{\parindent}{2em}
+\usepackage{cite}%引用参考文献
+\usepackage{fancyhdr}%设置页眉
+\usepackage{palatino}
+%------------------------------------------------------------------------------------------%
+%数学
+\usepackage{amsmath,amssymb,theorem,amscd,epic,curves,array}
+\usepackage{pifont}%\ding{192}数字圈1、\ding{193}数字圈2
+%------------------------------------------------------------------------------------------%
+%表格
+\usepackage{multirow,makecell,caption,float,rotating}%表格合并、垂直居中、标题、紧跟文字、旋转
+\usepackage{booktabs}%三线表
+%------------------------------------------------------------------------------------------%
+%图片
+\usepackage{graphicx,subfigure,wrapfig}%常规插图、子图、图文混排
+\usepackage[all]{xy}
+%------------------------------------------------------------------------------------------%
+%中文
+\usepackage{ctex,xeCJK,CJK}%中文宏包
+\newcommand{\song}{\CJKfamily{song}}    % 宋体   (Windows自带simsun.ttf)
+\newcommand{\fs}{\CJKfamily{fs}}        % 仿宋体 (Windows自带simfs.ttf)
+\newcommand{\kai}{\CJKfamily{kai}}      % 楷体   (Windows自带simkai.ttf)
+\newcommand{\hei}{\CJKfamily{hei}}      % 黑体   (Windows自带simhei.ttf)
+\newcommand{\li}{\CJKfamily{li}}        % 隶书   (Windows自带simli.ttf)
+%------------------------------------------------------------------------------------------%
+%字体伪加粗
+\usepackage{fontspec}
+\setmainfont[AutoFakeBold]{Times New Roman}
+\setCJKmainfont[AutoFakeBold]{SimSun}
+%------------------------------------------------------------------------------------------%
+%自定义
+%目录
+%\titlecontents{section}[0pt]{\bfseries\zihao{-4}\heiti}{\contentspush{\thecontentslabel.~}}{}{~\titlerule*[0.6pc]{$.$}~\contentspage}
+%\titlecontents{subsection}[2em]{\zihao{-4}}{\thecontentslabel}{}{~\titlerule*[0.6pc]{$.$}~\contentspage}
+%\titlecontents{subsubsection}[4em]{\zihao{-4}}{\thecontentslabel}{}{~\titlerule*[0.6pc]{$.$}~\contentspage}
+%\titlecontents{chapter}[0pt]{\bfseries \zihao{-4}\heiti}{\contentspush{第\thecontentslabel 章\quad}}{}{~\titlerule*[0.6pc]{$.$}~\contentspage}[\vspace{12pt}]
+%小标题
+\usepackage{titlesec}
+\usepackage{titletoc}
+\titleformat*{\section}{\zihao{3}\bfseries\song}
+\titleformat*{\subsection}{\zihao{-3}\bfseries\song}
+\titleformat*{\subsubsection}{\zihao{4}\bfseries\song}
+%------------------------------------------------------------------------------------------%
+%附录matlab
+\usepackage{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{
+	basicstyle=\scriptsize,                 % 设置整体的字体大小
+	showstringspaces=true           		% 不显示字符串中的空格
+	%背景框
+	framexleftmargin=1.5mm,
+	frame=shadowbox,
+	numbers=left,                               % 在左侧显示行号
+	% numberstyle=\scriptsize\color{gray},    % 设置行号格式
+	numberstyle=\color{darkgray},               % 设置行号格式
+	%背景色
+	%backgroundcolor=\color[RGB]{245,245,244},
+	keywordstyle=\color{blue},                  % 设置关键字颜色
+	commentstyle=\it\color[RGB]{0,100,0},       % 设置代码注释的格式
+	stringstyle=\sl\color{red},                 % 设置字符串格式
+}
+%------------------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------------------%
+
+
+\begin{document}
+%------------------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------------------%
+%封面
+\newpage
+\thispagestyle{empty}
+\linespread{1.6}{
+	\mbox{}\\
+	\vskip8mm
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=12.15cm,height=6.99cm]{logo.jpg}
+	\end{figure}
+	
+	\begin{center}
+		\Huge{\songti \pmb {\pmb{本~~科~~生~~毕~~业~~论~~文}}}\\
+		\vspace{2cm}
+		\LARGE\heiti{论文题目：\underline {这是论文题目}}%输入题目
+		
+		\vspace{2.1cm}
+		
+		\begin{flushleft}
+			\Large\songti{
+				\hspace{4.2cm}姓~~~~~~名: \underline{~~~~~~~~~~~~某某某~~~~~~~~~~~~}%输入姓名
+				\\
+				\hspace{4.2cm}学~~~~~~号: \underline{~~~~~~000000000000~~~~~~}% 输入学号
+				\\
+				\hspace{4.2cm}专~~~~~~业: \underline{~~~~~数学与应用数学~~~~}%输入专业
+				\\
+				\hspace{4.2cm}年~~~~~~级: \underline{~~~~~~~~~~~~2018 级~~~~~~~~~~~~}%输入年级
+				\\
+				\hspace{4.2cm}学~~~~~~院: \underline{~~~~~数学与统计学院~~~~}%输入院系
+				\\
+				\hspace{4.2cm}完成日期: \underline{~~2022~年~4~月~20~日~~}%输入日期
+				\\
+				\hspace{4.2cm}指导教师: \underline{~~~~~~某某某~~教授~~~~~~~}}% 输入指导教师
+%------------------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------------------%
+%独创性声明
+\newpage\pagenumbering{Roman}
+\linespread{2.1}{
+	\begin{center}
+		\LARGE\heiti{本科生毕业论文独创性声明}
+	\end{center}
+	\vspace{28pt}
+	
+	\Large\fangsong{~~~~~~~~本人声明所呈交的毕业论文是本人在导师指导下进行的研究工作及取得的研究成果，
+		除了文中特别加以标注和致谢的地方外，本论文中没有抄袭他人研究成果和伪造数据等行为 。与我一同工作的同志对本研究所做的任何贡献均已在论文中作了明确的说明并表示谢意。}
+	
+	\vspace*{1.2cm}
+	\Large{~~~~~~~~论文作者签名: \underline{~~~~~~~~~~~~~~~~~~~~~}~~~~~~日期: \underline{~~~~~~~~~~~~~~~~~~~~~}}\\
+	\vspace*{1.2cm}
+	\begin{center}
+		\LARGE\heiti{本科生毕业论文使用授权声明}
+	\end{center}
+	\vspace{28pt}
+	\Large\fangsong{~~~~~~~~海南师范大学有权保留并向国家有关部门或机构送交毕业论文的复印件和磁盘，
+		允许毕业论文被查阅和借阅。本人授权海南师范大学可以将本毕业论文的全部或部分内容编入有关数据库进行检索，可以采用影印、
+		缩印或其他复印手段保存、汇编毕业论文。}
+	
+	\vspace*{1.2cm}\Large{~~~~~~~~论文作者签名: \underline{~~~~~~~~~~~~~~~~~~~~~}~~~~~~ 日期: \underline{~~~~~~~~~~~~~~~~~~~~~}
+		
+		\vspace*{0.8cm}
+		~~~~~~~~指导教师签名: \underline{~~~~~~~~~~~~~~~~~~~~~}~~~~~~ 日期: \underline{~~~~~~~~~~~~~~~~~~~~~}}}
+\end{flushleft}
+\end{center}}				
+%------------------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------------------%
+%目录
+\newpage
+\linespread{1.1}{\def\contentsname{\centering\huge{\pmb{\kaishu{目~~~~录}}}}
+\LARGE\tableofcontents}
+%------------------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------------------%
+%摘要
+\newpage
+\pagenumbering{arabic}
+\linespread{1.8}
+\title{\heiti 题目}%输入中文题目
+\author{\fangsong 作者: XXX~~~指导教师: XXX~~教授\\
+	海南师范大学数学与统计学院，海口，571158}
+\date{}
+\maketitle
+\renewcommand\baselinestretch{1.4}\selectfont
+\begin{quotation}{\heiti ~~摘要：}{\fangsong
+		摘要正文
+	}
+	
+	{\heiti ~关键词：}
+	{\fangsong
+		关键词1；关键词2；关键词3；关键词4；关键词5
+	}\par
+\end{quotation}	
+	
+\begin{center}
+		\Large{\textbf {Topic} }%输入英文题目
+		\\
+		\large{ Author: XXX ~~~~Tutor: Professor~XXX  %输入者和指导教师（英文名）
+			\\
+			(College of Mathematics and Statistics, Hainan Normal University, Haikou, 571158)}
+\end{center}
+\renewcommand\baselinestretch{1.4}\selectfont
+\begin{quotation} \textbf{Abstract:}
+		the body of the abstract
+		
+	\textbf{Keywords:} Keyword1; Keyword2; Keyword3; Keyword4; Keyword5
+\end{quotation}\par
+
+%------------------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------------------%
+%正文
+\newpage
+\zihao{-4}
+\section{引言}
+
+引言正文
+
+%------------------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------------------%
+%参考文献
+
+\renewcommand\baselinestretch{1.1}\selectfont
+\renewcommand\refname{\textbf{参考文献}}
+\begin{thebibliography}{99}
+	\fangsong
+	\addcontentsline{toc}{section}{\textbf{参考文献}}
+	
+	\bibitem{paper1}参考文献正文
+	
+\end{thebibliography}
+
+%------------------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------------------%
+%致谢
+
+\renewcommand\baselinestretch{1.4}\selectfont
+\addcontentsline{toc}{section}{\textbf{致谢}}
+\begin{flushleft}
+	\zihao{3}\textbf{致谢}
+\end{flushleft}
+
+致谢正文
+
+%------------------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------------------%
+%附录
+
+\addcontentsline{toc}{section}{\textbf{附录}}
+\begin{flushleft}
+	\zihao{3}\textbf{附录}
+\end{flushleft}
+
+\begin{appendices}
+	\begin{lstlisting}[language=matlab]			
+         代码正文
+         %代码正文
+         fprintf('代码正文')
+	\end{lstlisting}
+\end{appendices}
+
+\end{document}
