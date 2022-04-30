@@ -1,35 +1,49 @@
+%----------------------------------------------------------------%
+%----------------------------------------------------------------%
+%常用图片宏包
+\usepackage{graphicx,subfigure,wrapfig}%常规插图、子图、图文混排
+\usepackage[all]{xy}
+%----------------------------------------------------------------%
+%----------------------------------------------------------------%
+%插入图片
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[scale=0.6]{figure1.png}
 	\caption{the name of the figrue}
 \end{figure}
-
-\begin{wrapfigure}{r}{3cm}  %这是图文混排的环境
+%----------------------------------------------------------------%
+%----------------------------------------------------------------%
+%图文混排
+\begin{wrapfigure}{r}{3cm} 
  \centering
  \includegraphics[scale=1]{41.jpg}
 \end{wrapfigure}
-
+%----------------------------------------------------------------%
+%----------------------------------------------------------------%
+%多图并排
 \begin{figure}[!htbp]
 	\centering
-	\subfigure[figure1]{
-		\includegraphics[width=7cm]{figure1.png}
+	\subfigure[fig1]{
+		\includegraphics[width=7cm]{fig1.png}
 		%\caption{fig1}
 	}
 	\quad
-	\subfigure[figure2]{
-		\includegraphics[width=7cm]{figure2.png}
+	\subfigure[fig2]{
+		\includegraphics[width=7cm]{fig2.png}
 	}
 	\quad
-	\subfigure[figure3]{
-		\includegraphics[width=7cm]{figure3.png}
+	\subfigure[fig3]{
+		\includegraphics[width=7cm]{fig3.png}
 	}
 	\quad
-	\subfigure[figure4]{
-		\includegraphics[width=7cm]{figure4.png}
+	\subfigure[fig4]{
+		\includegraphics[width=7cm]{fig4.png}
 	}
-	\caption{the name of the above figures}
+	\caption{figs}
 \end{figure}
-
+%---------------------------------------------------------------%
+%---------------------------------------------------------------%
+%表格中插入图片
 \begin{minipage}{0.1\textwidth}				
-  \includegraphics[scale=0.6]{figure1.png}
+  \includegraphics[scale=0.6]{fig1.png}
 \end{minipage}
