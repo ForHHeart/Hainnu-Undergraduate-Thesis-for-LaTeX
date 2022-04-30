@@ -1,0 +1,57 @@
+%---------------------------------------------------------%
+%---------------------------------------------------------%
+由于笔者已经在Frame.tex上写好了海南师范大学本科毕业论文模板，所以无需使用者再自定义目录。
+此文档仅用于学习记录LaTeX如何自定义页边距、行间距、字号、目录、标题、页码和页眉页脚。
+%---------------------------------------------------------%
+%---------------------------------------------------------%
+%一、设置页边距
+\usepackage[top=1in,bottom=1in,left=1.1in,right=1in]{geometry}%设置页边距
+%---------------------------------------------------------%
+%---------------------------------------------------------%
+%二、设置行间距
+%方法一：仅限于正文行距，也包括数学公式和浮动体，改变参数可设置任意行间距
+\usepackage{setspace}
+\singlespacing %单倍行距
+\onehalfspacing %1.5倍行距
+\doublespacing %双倍行距
+\setstretch{1.25} %任意行距
+%---------------------------------------------------------%
+%方法二：不仅可以设置正文行距，还可以设置目录、脚注、图表标题的行距，改变参数可设置任意行间距
+\linespread{1.3} %1.5行距
+\linespread{1.5} %双倍行距
+%---------------------------------------------------------%
+%方法三：局部设置，改变参数可设置任意行间距
+\begin{spacing}{1.25}
+	content...
+\end{spacing}
+%---------------------------------------------------------%
+%---------------------------------------------------------%
+%三、自定义目录
+%参考：https://www.zhihu.com/question/59347224/answer/1894759717
+%\titlecontents{section}[0pt]{\bfseries\zihao{-4}\heiti}{\contentspush{\thecontentslabel.~}}{}{~\titlerule*[0.6pc]{$.$}~\contentspage}
+%\titlecontents{subsection}[2em]{\zihao{-4}}{\thecontentslabel}{}{~\titlerule*[0.6pc]{$.$}~\contentspage}
+%\titlecontents{subsubsection}[4em]{\zihao{-4}}{\thecontentslabel}{}{~\titlerule*[0.6pc]{$.$}~\contentspage}
+%\titlecontents{chapter}[0pt]{\bfseries \zihao{-4}\heiti}{\contentspush{第\thecontentslabel 章\quad}}{}{~\titlerule*[0.6pc]{$.$}~\contentspage}[\vspace{12pt}]
+%---------------------------------------------------------%
+%---------------------------------------------------------%
+%四、自定义小标题
+\usepackage{titlesec}
+\usepackage{titletoc}
+\titleformat*{\section}{\zihao{3}\bfseries\song}
+\titleformat*{\subsection}{\zihao{-3}\bfseries\song}
+\titleformat*{\subsubsection}{\zihao{4}\bfseries\song}
+%---------------------------------------------------------%
+%---------------------------------------------------------%
+%五、设置页码
+\pagenumbering{Roman}%罗马数字计数页码，用于摘要、目录
+\pagenumbering{arabic}%阿拉伯数字计数页码，用于正文
+%---------------------------------------------------------%
+%---------------------------------------------------------%
+%六、设置页眉
+%通常封面使用：\thispagestyle{empty}，即可隐藏页眉和页码
+%通常摘要、目录使用：\thispagestyle{plain}，即可隐藏页眉，只显示罗马数字页码
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\chead{计算极限的一些方法探讨}%居中页眉
+\lhead{}%左页眉
+\rhead{}%右页眉
