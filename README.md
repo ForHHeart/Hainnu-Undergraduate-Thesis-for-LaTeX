@@ -8,3 +8,9 @@ This template is used for the Hainan Normal University undergraduate thesis, esp
 环境为Texlive2022 windows
 
 编辑器为Texstudio 6.2.3 qt6
+
+![image](1.封面.png)
+![image](2.独创性说明.png)
+![image](3.目录.png)
+![image](4.摘要.png)
+![image](5.正文.png)
