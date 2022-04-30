@@ -14,7 +14,7 @@ Template是模板，下载即可使用
 编辑器为Texstudio 6.2.3 qt6
 
 ![image](1a.封面.png)
-![image](1b.独创性说明 .png)
+![image](1b.独创性说明.png)
 ![image](1c.目录.png)
 ![image](1d.摘要.png)
 ![image](1e.正文.png)
